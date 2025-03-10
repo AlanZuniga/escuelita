@@ -10,6 +10,7 @@
 
     <table border="1">
         <tr>
+            <th>ID</th>
             <th>Nombre</th>
             <th>Correo</th>
             <th>Fecha_Nacimiento</th>

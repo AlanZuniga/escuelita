@@ -12,8 +12,8 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        $mensajes = Mensaje::all(); //variable mensaje -> modelo mensajes -> todo
-        //dd($mensajes);
+        $alumnos = Alumno::all(); //variable mensaje -> modelo mensajes -> todo
+        //dd($alumnos);
         return view('lista-alumnos', ['alumnos'=> $alumnos]); //crear un arreglo ['mensajes'=> $mensajes]
     }
        
@@ -31,14 +31,21 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         //
                 //dd( $request->all(), $request->correo );
         // dd('si llego a esta ruta');
 
         // Validar formulario
+        $request->validate([
+            'Nombre' => 'required|string|max:255',
+            'Correo' => 'required|email|unique:alumnos',
+            'Fecha_Nacimiento' => 'required|date',
+        ]);
 
         // Guardar a DB
         $alumno = new Alumno();
+        //$alumno->ID = $request->ID;
         $alumno->Nombre = $request->Nombre;
         $alumno->Correo = $request->Correo;
         $alumno->Fecha_Nacimiento = $request->Fecha_Nacimiento;
@@ -46,7 +53,7 @@ class AlumnoController extends Controller
         $alumno->save();
 
         // Redirigir
-        return redirect('/contacto');
+        return redirect('/alumnos');
 
     }
 
