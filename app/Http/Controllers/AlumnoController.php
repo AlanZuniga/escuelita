@@ -7,35 +7,21 @@ use Illuminate\Http\Request;
 
 class AlumnoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        $alumnos = Alumno::all(); //variable mensaje -> modelo mensajes -> todo
-        //dd($alumnos);
-        return view('lista-alumnos', ['alumnos'=> $alumnos]); //crear un arreglo ['mensajes'=> $mensajes]
+    public function index(){
+        return view('lista-alumno', [
+            'alumnos' => Alumno::all()
+        ]);  
     }
        
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create ()
-    {
+    public function create (){
         return view('contacto');
-        //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         //dd($request->all());
-        //
                 //dd( $request->all(), $request->correo );
         // dd('si llego a esta ruta');
-
         // Validar formulario
         $request->validate([
             'Nombre' => 'required|string|max:255',
@@ -50,19 +36,18 @@ class AlumnoController extends Controller
         $alumno->Correo = $request->Correo;
         $alumno->Fecha_Nacimiento = $request->Fecha_Nacimiento;
         //guardar en la basse de datos 
+        //dd($alumno);
         $alumno->save();
-
+        
         // Redirigir
         return redirect('/alumnos');
-
+        
     }
 
-    /**
-     * Display the specified resource.
-     */
+//-----------------------------------------------------------------
     public function show(Alumno $alumno)
     {
-        //
+        return view('alumnos.show-alumno', compact('alumno'));
     }
 
     /**
@@ -70,7 +55,7 @@ class AlumnoController extends Controller
      */
     public function edit(Alumno $alumno)
     {
-        //
+        return view('alumnos.edit-alumno', compact('alumno'));
     }
 
     /**
@@ -78,7 +63,19 @@ class AlumnoController extends Controller
      */
     public function update(Request $request, Alumno $alumno)
     {
-        //
+        $request->validate([
+            'Nombre' => 'required|string|max:255',
+            'Correo' => 'required|email|unique:alumnos',
+            'Fecha_Nacimiento' => 'required|date',
+        ]);
+
+        $alumno->nombre = $request->nombre;
+        $alumno->correo = $request->correo;
+        $alumno->Fecha_Nacimiento = $request->Fecha_Nacimiento;
+        $alumno->save();
+
+        return redirect()->route('alumnos.show', $alumno);
+
     }
 
     /**

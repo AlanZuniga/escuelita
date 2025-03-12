@@ -7,16 +7,16 @@
     <title>Contacto</title>
 </head>
 <body>
-    <form action="/crear-contacto" method="POST">
+    <form action="/crear-contacto" method="POST">  <!--<{{ route('alumnos.store') }}!--->
         @csrf
-        <label for="nombre">Nombre</label>
-        <input type="text" name="nombre">
+        <label for="nombre"> Nombre</label>
+        <input type="text" id="nombre" name="Nombre">
         <br>
-        <label for="correo">Correo</label>
-        <input type="email" name="correo">
+        <label for="correo">Correo:</label><br>
+        <input type="email" id="correo" name="Correo"><br>
         <br>
-        <label for="mensaje">Mensaje</label>
-        <textarea name="mensaje" cols="30" rows="10"></textarea>
+        <label for="Fecha_Nacimiento">Fecha de Nacimiento:</label><br>
+        <input type="date" id="Fecha_Nacimiento" name="Fecha_Nacimiento"><br>
         <br>
         <button type="submit">
             Enviar

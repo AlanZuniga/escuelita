@@ -8,7 +8,7 @@
 <body>
     <h1>Alumnos Recibidos</h1>
 
-    <table border="1">
+    <table border="2">
         <tr>
             <th>ID</th>
             <th>Nombre</th>
@@ -17,7 +17,7 @@
         </tr>
         
         @foreach ($alumnos as $alumno)
-        </tr>
+        <tr>
             <td>{{$alumno->id}}</td>
             <td>{{$alumno->Nombre}}</td>
             <td>{{$alumno->Correo}}</td>
