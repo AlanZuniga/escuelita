@@ -28,6 +28,11 @@
             <td>
                 <a href="{{ route('alumnos.edit', $alumno) }}">Editar</a>
                 <a href="{{ route('alumnos.show', $alumno->id) }}">Mostrar</a>
+                <form action="{{ route('alumnos.destroy', $alumno) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Eliminar</button>
+                </form>
             </td>
         </tr>
         @endforeach
