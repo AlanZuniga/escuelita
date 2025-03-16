@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('Nombre');
             $table->string('Correo')->unique();
             $table->date('Fecha_Nacimiento');
+            $table->string('Ciudad',50)->unique();
             $table->timestamps();
         });
     }

@@ -25,8 +25,9 @@ class AlumnoController extends Controller
         // Validar formulario
         $request->validate([
             'Nombre' => 'required|string|max:255',
-            'Correo' => 'required|email|unique:alumnos',
-            'Fecha_Nacimiento' => 'required|date',
+            'Correo' => ['required|email|unique:alumnos'],
+            'Fecha_Nacimiento' => ['required|date'],
+            'Ciudad' => ['required|string|max:255']
         ]);
 
         // Guardar a DB
@@ -35,6 +36,7 @@ class AlumnoController extends Controller
         $alumno->Nombre = $request->Nombre;
         $alumno->Correo = $request->Correo;
         $alumno->Fecha_Nacimiento = $request->Fecha_Nacimiento;
+        $alumno->Ciudad = $request->Ciudad;
         //guardar en la basse de datos 
         //dd($alumno);
         $alumno->save();
@@ -65,13 +67,15 @@ class AlumnoController extends Controller
     {
         $request->validate([
             'Nombre' => 'required|string|max:255',
-            'Correo' => 'required|email|unique:alumnos',
-            'Fecha_Nacimiento' => 'required|date',
+            'Correo' => ['required|email|unique:alumnos'],
+            'Fecha_Nacimiento' => ['required|date'],
+            'Ciudad' => ['required|string|max:255']
         ]);
 
         $alumno->nombre = $request->nombre;
         $alumno->correo = $request->correo;
         $alumno->Fecha_Nacimiento = $request->Fecha_Nacimiento;
+        $alumno->Ciudad = $request->Ciudad;
         $alumno->save();
 
         return redirect()->route('alumnos.show', $alumno);

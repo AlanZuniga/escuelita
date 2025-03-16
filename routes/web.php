@@ -10,8 +10,8 @@ Route::get('/', function () {
 Route::get('/inicio', function () {
     return view('landing');
 });
-Route::get('/alumnos',[AlumnoController::class, 'index']);
-Route::get('/contacto',[AlumnoController::class, 'create']);
-Route::post('/crear-contacto',[AlumnoController::class, 'store']);
+//Route::get('/alumnos',[AlumnoController::class, 'index']);
+//Route::get('/contacto',[AlumnoController::class, 'create']);
+//Route::post('/crear-contacto',[AlumnoController::class, 'store']);
 
 Route::resource('alumnos',AlumnoController::class);
