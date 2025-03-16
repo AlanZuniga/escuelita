@@ -7,16 +7,27 @@
     <title>Contacto</title>
 </head>
 <body>
-    <form action="/crear-contacto" method="POST">  <!--<{{ route('alumnos.store') }}!--->
-        @csrf
-        <label for="nombre"> Nombre</label>
-        <input type="text" id="nombre" name="Nombre">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <form action="/alumnos" method="POST"> @csrf
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" value="{{ old('nombre') }}">
         <br>
-        <label for="correo">Correo:</label><br>
-        <input type="email" id="correo" name="Correo"><br>
+        <label for="correo">Correo</label>
+        <input type="email" name="correo" value="{{ old('correo') }}">
         <br>
-        <label for="Fecha_Nacimiento">Fecha de Nacimiento:</label><br>
-        <input type="date" id="Fecha_Nacimiento" name="Fecha_Nacimiento"><br>
+        <label for="Fecha_Nacimiento">Fecha de Nacimiento</label>
+        <input type="date" name="Fecha_Nacimiento" value="{{ old('Fecha_Nacimiento') }}">
+        <br>
+        <label for="Ciudad">Ciudad</label>
+        <input type="text" name="Ciudad" value="{{ old('Ciudad') }}">
         <br>
         <button type="submit">
             Enviar

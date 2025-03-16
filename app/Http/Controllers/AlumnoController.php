@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class AlumnoController extends Controller
 {
     public function index(){
-        return view('lista-alumno', [
+        return view('lista-alumnos', [
             'alumnos' => Alumno::all()
         ]);  
     }
