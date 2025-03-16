@@ -25,14 +25,14 @@
 
         <label for="Nombre">Nombre</label>
         <input type="text" name="nombre" value="{{ $alumno->nombre }}">
-        @error('nombre')
+        @error('Nombre')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         <br>
 
         <label for="Correo">Correo</label>
         <input type="email" name="correo" value="{{ $alumno->correo }}">
-        @error('correo')
+        @error('Correo')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         <br>

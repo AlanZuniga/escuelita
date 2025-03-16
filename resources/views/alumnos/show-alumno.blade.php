@@ -10,8 +10,8 @@
     <h1>Alumno # {{ $alumno->id }}</h1>
 
     <ul>
-        <li>Nombre: {{ $alumno->nombre }}</li>
-        <li>Correo: {{ $alumno->correo }}</li>
+        <li>Nombre: {{ $alumno->Nombre }}</li>
+        <li>Correo: {{ $alumno->Correo }}</li>
         <li>Fecha_Nacimiento: {{ $alumno->Fecha_Nacimiento }}</li>
         <li>Ciudad: {{ $alumno->Ciudad }}</li>
 
