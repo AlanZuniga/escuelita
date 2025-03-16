@@ -17,11 +17,11 @@
         </div>
     @endif
     <form action="/alumnos" method="POST"> @csrf
-        <label for="nombre">Nombre</label>
-        <input type="text" name="nombre" value="{{ old('nombre') }}">
+        <label for="Nombre">Nombre</label>
+        <input type="text" name="Nombre" value="{{ old('nombre') }}">
         <br>
-        <label for="correo">Correo</label>
-        <input type="email" name="correo" value="{{ old('correo') }}">
+        <label for="Correo">Correo</label>
+        <input type="email" name="Correo" value="{{ old('correo') }}">
         <br>
         <label for="Fecha_Nacimiento">Fecha de Nacimiento</label>
         <input type="date" name="Fecha_Nacimiento" value="{{ old('Fecha_Nacimiento') }}">
