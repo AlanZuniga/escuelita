@@ -24,14 +24,14 @@
         @method('PUT')
 
         <label for="Nombre">Nombre</label>
-        <input type="text" name="Nombre" value="{{ $alumno->nombre }}">
+        <input type="text" name="Nombre" value="{{ $alumno->Nombre }}">
         @error('Nombre')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         <br>
 
         <label for="Correo">Correo</label>
-        <input type="email" name="Correo" value="{{ $alumno->correo }}">
+        <input type="email" name="Correo" value="{{ $alumno->Correo }}">
         @error('Correo')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
