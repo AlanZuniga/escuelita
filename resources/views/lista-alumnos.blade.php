@@ -7,7 +7,9 @@
 </head>
 <body>
     <h1>Alumnos Recibidos</h1>
-
+    <a href="{{ route('alumnos.create') }}">
+        <button type="submit">Crear nuevo alumno</button> 
+    </a>
     <table border="2">
         <tr>
             <th>ID</th>
