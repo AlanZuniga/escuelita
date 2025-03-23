@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Alumno</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    
 </head>
 <body class="flex justify-center items-center min-h-screen bg-gray-100">
     <div class="w-full max-w-lg bg-white p-6 rounded-lg shadow-lg">
         <h2 class="text-2xl font-bold text-blue-600 text-center mb-4">Editar Alumno # {{ $alumno->id }}</h2>
+
         @if ($errors->any())
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
                 <ul>

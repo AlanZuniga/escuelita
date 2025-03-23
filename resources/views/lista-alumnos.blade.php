@@ -11,14 +11,13 @@
 
 <body class="flex justify-center items-center min-h-screen bg-gray-100">
 
-@if (session('success'))
+    <div class="w-full max-w-4xl bg-white p-6 rounded-lg shadow-lg">
+        <h1 class="text-3xl font-bold text-blue-600 text-center mb-6">Alumnos Recibidos</h1>
+        @if (session('success'))
         <div class="success-message">
             {{ session('success') }}
         </div>
-    @endif
-
-    <div class="w-full max-w-4xl bg-white p-6 rounded-lg shadow-lg">
-        <h1 class="text-3xl font-bold text-blue-600 text-center mb-6">Alumnos Recibidos</h1>
+        @endif
         <div class="flex justify-end mb-4">
             <a href="{{ route('alumnos.create') }}" class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600">Crear nuevo alumno</a>
         </div>

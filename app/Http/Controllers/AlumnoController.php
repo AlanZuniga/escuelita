@@ -59,6 +59,7 @@ class AlumnoController extends Controller
     public function edit(Alumno $alumno)
     {
         return view('alumnos.edit-alumno', compact('alumno'));
+        session()->flash('success', 'Alumno editado exitosamente.');
     }
 
     /**
