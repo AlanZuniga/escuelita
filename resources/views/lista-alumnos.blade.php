@@ -5,8 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Alumnos</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ asset('css/lista-alumnos.css') }}" type="text/css">
 </head>
+
+
 <body class="flex justify-center items-center min-h-screen bg-gray-100">
+
+@if (session('success'))
+        <div class="success-message">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <div class="w-full max-w-4xl bg-white p-6 rounded-lg shadow-lg">
         <h1 class="text-3xl font-bold text-blue-600 text-center mb-6">Alumnos Recibidos</h1>
         <div class="flex justify-end mb-4">

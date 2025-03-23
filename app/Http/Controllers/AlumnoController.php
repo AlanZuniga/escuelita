@@ -42,6 +42,7 @@ class AlumnoController extends Controller
         $alumno->save();
         
         // Redirigir
+        session()->flash('success', 'Alumno creado exitosamente.');
         return redirect('/alumnos');
         
     }
@@ -65,20 +66,25 @@ class AlumnoController extends Controller
      */
     public function update(Request $request, Alumno $alumno)
     {
+        //dd($request->all());
         $request->validate([
             'Nombre' => 'required|string|max:255',
-            'Correo' => ['required','email','unique:alumnos'],
+            'Correo' => 'required|email|unique:alumnos,correo,'. $alumno->id,
             'Fecha_Nacimiento' => ['required','date'],
             'Ciudad' => ['required','string','max:255']
         ]);
 
-        $alumno->nombre = $request->nombre;
-        $alumno->correo = $request->correo;
+        $alumno->Nombre = $request->Nombre;
+        $alumno->Correo = $request->Correo;
         $alumno->Fecha_Nacimiento = $request->Fecha_Nacimiento;
         $alumno->Ciudad = $request->Ciudad;
+        //dd($alumno)
         $alumno->save();
-
+        //redirigir -> validacion
+        $alumno->update($request->all());
+        session()->flash('success', 'Alumno actualizado exitosamente.');
         return redirect()->route('alumnos.show', $alumno);
+        
 
     }
 
