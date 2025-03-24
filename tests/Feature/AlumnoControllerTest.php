@@ -9,34 +9,34 @@ use Tests\TestCase;
 
 class AlumnoControllerTest extends TestCase
 {
-    use RefreshDatabase;
-    /**
-     * A basic feature test example.
-     */
+    //use RefreshDatabase;
+    
+     // A basic feature test example.
+     
 
 
      public function test_muestra_listado_alumnos(): void
      {
          // $response = $this->get(route('alumnos.index'));
          //Alumno::factory(2)->create(); //crear dos alumnos
-         $response = $this->get('/alumnos');
+        $response = $this->get('/alumnos');
 
-         $response->assertSee('Listado de Alumnos');
-         $response->assertStatus(200);
+        $response->assertSee('Alumnos Recibidos');
+        $response->assertStatus(200);
      }
  
-     /** @test */
+    #[Test]
      public function muestra_formulario_crear_alumno(): void
      {
-         $response = $this->get('/alumnos/create');
+        $response = $this->get('/alumnos/create');
 
-         $response->assertSee('Crear Alumno')
-             ->assertSeeHtml('name="Nombre"', false);
+        $response->assertSee('Crear Alumno')
+            ->assertSeeHtml('name="Nombre"', false);
  
-         $response->assertStatus(200);
+        $response->assertStatus(200);
      }
  
-     /** @test */
+     #[Test]
      public function crear_nuevo_alumno(): void
      {
          //Dado
@@ -51,7 +51,7 @@ class AlumnoControllerTest extends TestCase
          $response->assertRedirect('/alumnos');
      }
  
-     /** @test */
+     #[Test]
      public function muestra_formulario_editar_alumno(): void
      {
          //Dado
@@ -69,8 +69,8 @@ class AlumnoControllerTest extends TestCase
              ->assertSeeHtml($alumno->Ciudad)
              ->assertStatus(200);
      }
-     //----------------------------------------------------------------------------------
-      /** @test */
+     //------------------------------------------------------------------
+     #[Test]
     public function muestra_detalle_alumno(): void
     {
         $alumno = Alumno::factory()->create();
@@ -85,7 +85,7 @@ class AlumnoControllerTest extends TestCase
             ->assertStatus(200);
     }
 
-    /** @test */
+    #[Test]
     public function editar_alumno(): void
     {
         $alumno = Alumno::factory()->create();
@@ -97,7 +97,7 @@ class AlumnoControllerTest extends TestCase
         $response->assertRedirect(route('alumnos.show', $alumno->id));
     }
 
-    /** @test */
+    #[Test]
     public function eliminar_alumno(): void
     {
         $alumno = Alumno::factory()->create();

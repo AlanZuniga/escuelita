@@ -17,10 +17,10 @@ class AlumnoFactory extends Factory
     public function definition(): array
     {
         return [
-            'Nombre' => faker()->name(),
-            'Correo' => faker()->unique()->safeEmail(),
-            'Fecha_Nacimiento' => faker()->date(),
-            'Ciudad' => faker()->city(),
+            'Nombre' => $this->faker->name(),
+            'Correo' => $this->faker->unique()->safeEmail(),
+            'Fecha_Nacimiento' => $this->faker->date(),
+            'Ciudad' => $this->faker->city(),
             //
         ];
     }
