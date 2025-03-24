@@ -25,19 +25,19 @@ class AlumnoControllerTest extends TestCase
         $response->assertStatus(200);
      }
  
-    #[Test]
-     public function muestra_formulario_crear_alumno(): void
+    
+     public function test_muestra_formulario_crear_alumno(): void
      {
         $response = $this->get('/alumnos/create');
 
-        $response->assertSee('Crear Alumno')
+        $response->assertSee('Registrar Nuevo Alumno')
             ->assertSeeHtml('name="Nombre"', false);
  
         $response->assertStatus(200);
      }
  
-     #[Test]
-     public function crear_nuevo_alumno(): void
+     
+     public function test_crear_nuevo_alumno(): void
      {
          //Dado
          $alumno = Alumno::factory()->make();
@@ -51,8 +51,8 @@ class AlumnoControllerTest extends TestCase
          $response->assertRedirect('/alumnos');
      }
  
-     #[Test]
-     public function muestra_formulario_editar_alumno(): void
+     
+     public function test_muestra_formulario_editar_alumno(): void
      {
          //Dado
          $alumno = Alumno::factory()->create();
@@ -62,7 +62,7 @@ class AlumnoControllerTest extends TestCase
          $response = $this->get(route('alumnos.edit', $alumno->id));
  
          //Expectativa
-         $response->assertSee('Editar alumno')
+         $response->assertSee('Editar Alumno')
              ->assertSeeHtml($alumno->Nombre)
              ->assertSeeHtml($alumno->Correo)
              ->assertSeeHtml($alumno->Fecha_Nacimiento)
@@ -70,14 +70,14 @@ class AlumnoControllerTest extends TestCase
              ->assertStatus(200);
      }
      //------------------------------------------------------------------
-     #[Test]
-    public function muestra_detalle_alumno(): void
+     
+    public function test_muestra_detalle_alumno(): void
     {
         $alumno = Alumno::factory()->create();
 
         $response = $this->get(route('alumnos.show', $alumno->id));
 
-        $response->assertSee('Detalle alumno')
+        $response->assertSee('Detalle del Alumno')
             ->assertSeeHtml($alumno->Nombre)
             ->assertSeeHtml($alumno->Correo)
             ->assertSeeHtml($alumno->Fecha_Nacimiento)
@@ -85,8 +85,8 @@ class AlumnoControllerTest extends TestCase
             ->assertStatus(200);
     }
 
-    #[Test]
-    public function editar_alumno(): void
+   
+    public function test_editar_alumno(): void
     {
         $alumno = Alumno::factory()->create();
         $alumnoEditado = Alumno::factory()->make();
@@ -97,8 +97,8 @@ class AlumnoControllerTest extends TestCase
         $response->assertRedirect(route('alumnos.show', $alumno->id));
     }
 
-    #[Test]
-    public function eliminar_alumno(): void
+    
+    public function test_eliminar_alumno(): void
     {
         $alumno = Alumno::factory()->create();
 
